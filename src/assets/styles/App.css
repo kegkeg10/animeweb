@@ -1,0 +1,12 @@
+.searcher {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.searchy {
+    background-color: rgb(212, 167, 108);
+}
+
+.nav {
+    color: aqua;
+}
