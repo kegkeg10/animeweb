@@ -1,17 +1,11 @@
 import { useState, useEffect } from "react";
-import { Button, Card, Container } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 const TopAiringAnime = () => {
   const [TopAirAnime, setTopAirAnime] = useState([]);
-  const [showInfo, setShowInfo] = useState(false);
-
-  function handleTop() {
-    setShowInfo(true);
-    fetchTopAirAnime();
-  }
 
   useEffect(() => {
-    setShowInfo(false);
     fetchTopAirAnime();
   }, []);
 
@@ -27,35 +21,33 @@ const TopAiringAnime = () => {
       });
   };
 
-    return (
-        <div>
-        <div className="d-flex justify-content-center mt-3">
-            <Button variant="success" onClick={handleTop}>
-            Currently Airing Anime
-            </Button>
-        </div>
-        {showInfo && TopAirAnime.length > 0 && (
-            <Container className="d-flex flex-wrap justify-content-center gap-4 md-4 mt-4">
-            {TopAirAnime.map((season, index) => (
-                <Card key={index} style={{ color: "white", width: "13rem" }}>
+  return (
+    <div>
+      {TopAirAnime.length > 0 && (
+        <Container className='d-flex flex-wrap justify-content-center gap-4 md-4 mt-4'>
+          {TopAirAnime.map(anime => (
+            <Card key={anime.mal_id} style={{ color: 'white', width: '12rem' }}>
+
                 <Card.Img
-                    style={{ height: "18rem", objectFit: "cover" }}
-                    variant="top"
-                    src={season.images.jpg.image_url}
+                  style={{ height: '18rem', objectFit: 'cover' }}
+                  variant='top'
+                  src={anime.images.jpg.image_url}
                 />
                 <Card.Body>
-                    <Card.Title>{season.title_english ?? season.title}</Card.Title>
-                    <Card.Text>Episode Count: {season.episodes}</Card.Text>
-                    <Card.Text>Score: {season.score}</Card.Text>
-                    <Card.Text>Popularity: {season.popularity}</Card.Text>
-                    <a href={season.url}>Link ⬅️</a>
+                  <Card.Title>{anime.title_english}</Card.Title>
+                  <Card.Text>Episodes: {anime.episodes ?? anime.status}</Card.Text>
+                  <Card.Text>Score: {anime.score}</Card.Text>
+                  <Card.Text>Popularity: {anime.popularity}</Card.Text>
+                  <Link to={`/anime/${anime.mal_id}`}>Link ⬅️
+              </Link>
+                  {/* <a href={anime.url}>Link ⬅️</a> */}
                 </Card.Body>
-                </Card>
-            ))}
-            </Container>
-        )}
-        </div>
-    );
+            </Card>
+          ))}
+        </Container>
+      )}
+    </div>
+  );
 };
 
 export default TopAiringAnime;

@@ -31,7 +31,7 @@ return (
     <div>
         <div className="d-flex justify-content-center mt-3">
             <Button variant="success" onClick={handleTop}>
-            Currently Airing Anime
+            Upcoming Anime
             </Button>
         </div>
         {showInfo && UpcomingAni.length > 0 && (

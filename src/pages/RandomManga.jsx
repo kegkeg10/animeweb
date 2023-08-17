@@ -16,7 +16,7 @@ const RandomManga = () => {
     }, []);
 
     const fetchRandomAnime = () => {
-        const randomApi = 'https://api.jikan.moe/v4/random/anime';
+        const randomApi = 'https://api.jikan.moe/v4/random/anime?limit=25';
         fetch(randomApi)
             .then(response => response.json())
             .then(data => {
@@ -46,7 +46,7 @@ const RandomManga = () => {
                             src={RandomAnime.data.images.jpg.image_url}
                         />
                         <Card.Body>
-                        <Card.Title>{RandomAnime.title_english ?? RandomAnime.title}</Card.Title>
+                        <Card.Title>{RandomAnime.data.title_english ?? RandomAnime.data.title}</Card.Title>
                         <Card.Text>Episode Count: {RandomAnime.data.episodes}</Card.Text>
                         <Card.Text>Score: {RandomAnime.data.score}</Card.Text>
                         <Card.Text>Popularity: {RandomAnime.data.popularity}</Card.Text>
