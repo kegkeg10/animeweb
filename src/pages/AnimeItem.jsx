@@ -21,14 +21,14 @@ useEffect(() => {
 }, []);
 
     return (
-        <div className="d-flex pt-5 justify-content-center vh-100">
+        <div className="d-flex pt-5 justify-content-center vh-100" style={{ backgroundColor: "#171717", minHeight: "100vh" }}>
         <div className="d-flex align-items-start ">
             <img
             className="pb-5"
             src={anime.images?.jpg.large_image_url}
             alt="Anime Poster"
             />
-            <div className=" ml-4 pt-5" style={{ color: "white", padding: "65px" }}>
+            <div className="ml-4 pt-5" style={{ color: "#FFFFFF", padding: "65px" }}>
             <Container style={{ width: "58rem" }} fluid={false}>
                 <Card.Title>
                 <strong>{anime.title_english ?? anime.title}</strong>

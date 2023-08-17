@@ -1,17 +1,11 @@
 import { useState, useEffect } from "react";
-import { Button, Card, Container } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 const UpComingAnime = () => {
 const [UpcomingAni, setUpcomingAni] = useState([]);
-const [showInfo, setShowInfo] = useState(false);
-
-function handleTop() {
-    setShowInfo(true);
-    fetchUpcomingAni();
-}
 
 useEffect(() => {
-    setShowInfo(false);
     fetchUpcomingAni();
 }, []);
 
@@ -30,11 +24,8 @@ const fetchUpcomingAni = () => {
 return (
     <div>
         <div className="d-flex justify-content-center mt-3">
-            <Button variant="success" onClick={handleTop}>
-            Upcoming Anime
-            </Button>
         </div>
-        {showInfo && UpcomingAni.length > 0 && (
+        {UpcomingAni.length > 0 && (
             <Container className="d-flex flex-wrap justify-content-center gap-4 md-4 mt-4">
             {UpcomingAni.map((upcoming, index) => (
                 <Card key={index} style={{ color: "white", width: "13rem" }}>
@@ -55,7 +46,8 @@ return (
                     </span>
                     </Card.Text>
                     <Card.Text>Popularity: {upcoming.popularity}</Card.Text>
-                    <a href={upcoming.url}>Link ⬅️</a>
+                    <Link to={`/anime/${upcoming.mal_id}`}>Link ⬅️
+                    </Link>
                 </Card.Body>
                 </Card>
             ))}

@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 const TopAiringAnime = () => {
   const [TopAirAnime, setTopAirAnime] = useState([]);
 
+
   useEffect(() => {
     fetchTopAirAnime();
   }, []);
 
   const fetchTopAirAnime = () => {
-    const topApi = "https://api.jikan.moe/v4/seasons/now?limit=25";
+    const topApi = "https://api.jikan.moe/v4/seasons/now?limit=24";
     fetch(topApi)
       .then((response) => response.json())
       .then((data) => {
@@ -44,8 +45,10 @@ const TopAiringAnime = () => {
                 </Card.Body>
             </Card>
           ))}
+
         </Container>
       )}
+      <div className="d-flex justify-content-center mt-4"></div>
     </div>
   );
 };

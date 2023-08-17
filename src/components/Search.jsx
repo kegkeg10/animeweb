@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Card, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Search() {
 const [search, setSearch] = useState("");
@@ -64,7 +65,15 @@ const handleSubmit = (e) => {
                     </Card.Text>
                     <Card.Text>Score: {anime.score}</Card.Text>
                     <Card.Text>Popularity: {anime.popularity}</Card.Text>
-                    <a href={anime.url}>Link ⬅️</a>
+                    <Link to={`/anime/${anime.mal_id}`}>Link ⬅️
+                    </Link>
+                    <div className="embed-responsive embed-responsive-21by9"> {/* Use 16:9 aspect ratio for a typical video */}
+                    {/* <iframe
+                        className="embed-responsive-item"
+                        // src={anime?.trailer.embed_url}
+                        style={{ width: '500px', height: '300px' }} // Set iframe dimensions to 100% width and height
+                    ></iframe> */}
+                </div>
                 </Card.Body>
                 </Card>
             </div>
