@@ -21,10 +21,10 @@ useEffect(() => {
 }, []);
 
     return (
-        <div className="d-flex pt-5 justify-content-center vh-100" style={{ backgroundColor: "#171717", minHeight: "100vh" }}>
+        <div className=" d-flex pt-5 justify-content-center vh-100" style={{ backgroundColor: "#171717", minHeight: "100vh" }}>
         <div className="d-flex align-items-start ">
             <img
-            className="pb-5"
+            className="pb-5 imager"
             src={anime.images?.jpg.large_image_url}
             alt="Anime Poster"
             />
@@ -57,7 +57,7 @@ useEffect(() => {
                     {showMoreContent ? "Show Less" : "Read More"}
                 </button>
                 </Card.Text>
-                <div className="embed-responsive embed-responsive-21by9"> {/* Use 16:9 aspect ratio for a typical video */}
+                <div className="trailer embed-responsive embed-responsive-21by9"> {/* Use 16:9 aspect ratio for a typical video */}
                     <iframe
                         className="embed-responsive-item"
                         src={trailer?.embed_url}
