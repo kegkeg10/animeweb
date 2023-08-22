@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const TopAnime = () => {
   const [topAnime, setTopAnime] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [maxPageLimit, setMaxPageLimit] = useState(5);
-  const [minPageLimit, setMinPageLimit] = useState(0);
+  const [maxPageLimit, setMaxPageLimit] = useState(9);
+  const [minPageLimit, setMinPageLimit] = useState(1);
 
   console.log(setMaxPageLimit, setMinPageLimit);
 
@@ -15,7 +15,7 @@ const TopAnime = () => {
   }, [currentPage]);
 
   const fetchTopAnime = () => {
-    const topApi = `https://api.jikan.moe/v4/top/anime?filter=bypopularity&limit=24&page=${currentPage}`;
+    const topApi = `https://api.jikan.moe/v4/top/anime?filter=bypopularity&limit=25&page=${currentPage}`;
     fetch(topApi)
       .then((response) => response.json())
       .then((data) => {
@@ -35,9 +35,9 @@ const TopAnime = () => {
   return (
     <div>
       <h2 className="d-flex justify-content-center" style={{ color: "#ffd000",}}>
-        <strong>Top Anime</strong>
+        <strong className="height">Top Anime</strong>
       </h2>
-      <div className="d-flex justify-content-center mt-4">
+      <div className=" d-flex justify-content-center mt-4 phoneb">
         <Button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === minPageLimit}
@@ -53,16 +53,16 @@ const TopAnime = () => {
         </Button>
       </div>
       {topAnime.length > 0 && (
-        <Container className="d-flex flex-wrap justify-content-center gap-4 md-3 mt-3">
+        <Container className="d-flex flex-wrap justify-content-center gap-4 mt-3">
           {topAnime.map((anime) => (
-            <Card key={anime.mal_id} style={{ color: "white", width: "11rem" }}>
+            <Card key={anime.mal_id} style={{ color: "white", width: "14rem" }}>
               <Card.Img
                 style={{ height: "20rem",objectFit: "cover" }}
                 variant="top"
                 src={anime.images.jpg.image_url}
               />
               <Card.Body>
-                <Card.Title>{anime.title_english}</Card.Title>
+                <Card.Title>{anime.title_english ?? anime.title}</Card.Title>
                 <Card.Text>
                   Episodes: {anime.episodes ?? anime.status}
                 </Card.Text>

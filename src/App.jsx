@@ -7,8 +7,7 @@ import Search from './components/Search'
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import LoginPage from "./pages/LoginPage";
-
+import TopManga from './pages/TopManga'
 
 function App() {
 return (
@@ -18,19 +17,19 @@ return (
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={Link} to="Topairing" activeClassName="active">Top Airing Anime</Nav.Link>
-            <Nav.Link as={Link} to="Upcominganime" activeClassName="active">Upcoming Anime</Nav.Link>
-            <Nav.Link as={Link} to="Search" activeClassName="active">Search</Nav.Link>
-            <Nav.Link as={Link} to="Login" activeClassName="active">Login</Nav.Link>
+            <Nav.Link as={Link} to="/Topairing" activeClassName="active">Top Airing Anime</Nav.Link>
+            <Nav.Link as={Link} to="/Upcominganime" activeClassName="active">Upcoming Anime</Nav.Link>
+            <Nav.Link as={Link} to="/topmanga" activeClassName="active">Top Manga</Nav.Link>
+            <Nav.Link as={Link} to="/Search" activeClassName="active">Search</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
       <Routes>
         <Route path="/" element={<TopAnime />} />
-        <Route path="Topairing" element={<TopAiringAnime />} />
-        <Route path="Search" element={<Search />} />
-        <Route path="Login" element={<LoginPage/>} />
-        <Route path="Upcominganime" element={<UpComingAnime />} />
+        <Route path="/Topairing" element={<TopAiringAnime />} />
+        <Route path="/topmanga" element={<TopManga />} />
+        <Route path="/Search" element={<Search />} />
+        <Route path="/Upcominganime" element={<UpComingAnime />} />
         <Route path="/anime/:id" element={<AnimeItem />} />
       </Routes>
     </BrowserRouter>

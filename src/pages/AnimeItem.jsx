@@ -21,7 +21,7 @@ useEffect(() => {
 }, []);
 
     return (
-        <div className=" d-flex pt-5 justify-content-center vh-100" style={{ backgroundColor: "#171717", minHeight: "100vh" }}>
+        <div className=" d-flex pt-5 justify-content-center vh-100" style={{ backgroundColor: "#35a3c59b",maxHeight: '100vh', }}>
         <div className="d-flex align-items-start ">
             <img
             className="pb-5 imager"

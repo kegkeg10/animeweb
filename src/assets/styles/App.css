@@ -1,64 +1,96 @@
 .searcher {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 .searchy {
-    background-color: rgb(212, 167, 108);
+  background-color: rgb(212, 167, 108);
 }
 
 .nav {
-    color: aqua;
+  color: aqua;
 }
 .button {
-    color: rgb(255, 255, 255);
-    background-color: rgb(92, 46, 46);
+  color: rgb(255, 255, 255);
+  background-color: rgb(92, 46, 46);
 }
 
 @media (max-width: 572px) {
-    .pt-5 {
-        padding-top: 3rem; /* Adjust spacing for smaller screens */
-    }
-    .pb-3 {
-        padding-bottom: 1.5rem; /* Adjust spacing for smaller screens */
-    }
-    .text-center {
-        text-align: center;
-    }
-    /* Add more styles as needed */
+  .pt-5 {
+    padding-top: 3rem; /* Adjust spacing for smaller screens */
+  }
+  .pb-3 {
+    padding-bottom: 1.5rem; /* Adjust spacing for smaller screens */
+  }
+  .text-center {
+    text-align: center;
+  }
+  /* Add more styles as needed */
 }
 .d-flex {
-    /* Existing styles for larger screens */
+  /* Existing styles for larger screens */
+}
+
+/* Media query for screens with a maximum width of 768px (adjust as needed for iPhones) */
+@media (max-width: 768px) {
+  .d-flex {
+    /* Adjust container styles for smaller screens */
+    flex-direction: column; /* Stack child elements vertically */
   }
-  
-  /* Media query for screens with a maximum width of 768px (adjust as needed for iPhones) */
-  @media (max-width: 768px) {
-    .d-flex {
-      /* Adjust container styles for smaller screens */
-      flex-direction: column; /* Stack child elements vertically */
-      
-    }
-    .info-section {
-      /* Styles for the information section on smaller screens */
-      padding-left: 20px;
-        display: flex;
-        justify-content: center;
-         margin-top: 1px; /* Add some space between the image and information */
-    }
-    .trailer{
-        margin-top: 90px;
-        margin-right: 90px;
-        padding-right: 20px;
-        display: flex;
-        justify-content: start;
-        width: 100px;
-    }
-    .imager{
-        margin-top: 500px;
-        padding-top: 200px;
-        display: flex;
-        justify-content: center;
-        height: 840px;
-        width: 390px;
-    }
+  .info-section {
+    /* Styles for the information section on smaller screens */
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 1px; /* Add some space between the image and information */
   }
+  .trailer {
+    margin-top: 90px;
+    margin-right: 90px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: start;
+    width: 100px;
+  }
+  .imager {
+    margin-top: 500px;
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    height: 840px;
+    width: 390px;
+  }
+  .phoner{
+    display: flex;
+    height: 840px;
+  }
+
+  .height{
+    height: 100vh;
+    width: 20vh;
+  }
+}
+
+.imager {
+  margin-top: 50px;
+  width: 350px;
+}
+
+.login {
+    display: flex;
+    font-size: 31px;
+    color: rgb(14, 0, 0);
+    text-align: center
+}
+.conlogin {
+    padding-top: 10px;
+    padding-bottom: 8px;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  gap: 189px;
+}
